@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Research Agent Workflow — Experiment 07</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-atom"></i>
+                </div>
+                <div>
+                    <h1>Deep Research Agent Workflow</h1>
+                    <p class="subtitle">MR23-1CS0436 — Experiment 07 · Planning + Reflection Loops for Deep Synthesis</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="badge status-badge"><i class="fa-solid fa-signal"></i> Active (Port 8006)</span>
+                <span class="badge loop-badge"><i class="fa-solid fa-rotate"></i> Bounded Reflection (Max 3 Loops)</span>
+            </div>
+        </header>
+
+        <!-- Main Studio Grid -->
+        <div class="studio-grid">
+            <!-- Left Control Panel -->
+            <aside class="panel control-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-compass"></i> Research Topic Setup</h2>
+                </div>
+
+                <!-- Sample Topic Chips -->
+                <div class="samples-section">
+                    <label class="input-label"><i class="fa-solid fa-lightbulb"></i> Sample Research Topics</label>
+                    <div id="sample-topics-container" class="sample-buttons"></div>
+                </div>
+
+                <form id="research-form">
+                    <div class="form-group">
+                        <label class="input-label" for="research-topic"><i class="fa-solid fa-heading"></i> Target Research Topic</label>
+                        <input type="text" id="research-topic" class="control-input" value="Autonomous AI Multi-Agent Systems in Cyber Defense" placeholder="Enter target research topic...">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="input-label" for="max-loops"><i class="fa-solid fa-repeat"></i> Max Reflection Iterations (1-3)</label>
+                        <input type="number" id="max-loops" class="control-input" value="2" min="1" max="3">
+                    </div>
+
+                    <button type="submit" id="run-research-btn" class="btn btn-primary btn-block">
+                        <span>Launch Deep Research Workflow</span>
+                        <i class="fa-solid fa-rocket"></i>
+                    </button>
+                </form>
+
+                <!-- Active Agent Roles Card -->
+                <div class="agent-roles-card">
+                    <h3><i class="fa-solid fa-network-wired"></i> Multi-Agent Reflection Loop</h3>
+                    <ul class="role-list">
+                        <li><i class="fa-solid fa-sitemap"></i> <strong>Planner:</strong> Subtopic Decomposition</li>
+                        <li><i class="fa-solid fa-book-open"></i> <strong>Researcher:</strong> Deep Content Synthesis</li>
+                        <li><i class="fa-solid fa-magnifying-glass"></i> <strong>Reflection:</strong> Quality Critique & Scoring</li>
+                        <li><i class="fa-solid fa-pen-nib"></i> <strong>Synthesizer:</strong> Markdown Report Compilation</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Workbench / Display Area -->
+            <main class="panel display-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-file-contract"></i> Synthesized Research Dossier & Trace</h2>
+                    <span id="duration-badge" class="badge duration-badge" style="display: none;">0ms</span>
+                </div>
+
+                <!-- Welcome Placeholder -->
+                <div id="welcome-card" class="welcome-card">
+                    <div class="welcome-icon"><i class="fa-solid fa-atom"></i></div>
+                    <h3>Deep Research Agent Studio</h3>
+                    <p>Enter a research topic and click <strong>"Launch Deep Research Workflow"</strong> to execute automated planning, iterative subtopic research, quality reflection critique, and publication-grade dossier synthesis.</p>
+                </div>
+
+                <!-- Results Area -->
+                <div id="results-area" class="results-area" style="display: none;">
+                    <!-- Metrics Bar -->
+                    <div class="metrics-row">
+                        <div class="metric-card highlight">
+                            <span class="metric-label">Quality Score</span>
+                            <span id="quality-score-val" class="metric-val">0/100</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Subtopics Planned</span>
+                            <span id="subtopics-count-val" class="metric-val">0</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Reflection Iterations</span>
+                            <span id="iterations-count-val" class="metric-val">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Research Plan & Reflection Tree -->
+                    <div class="result-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-timeline"></i> Research Execution Trace & Reflection Log</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="reflection-timeline" class="timeline-container"></div>
+                        </div>
+                    </div>
+
+                    <!-- Final Dossier Markdown Container -->
+                    <div class="result-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-file-lines"></i> Compiled Research Dossier</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="dossier-markdown-content" class="dossier-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
